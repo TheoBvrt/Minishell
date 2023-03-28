@@ -70,5 +70,5 @@ int		ft_increment_putstr(char *s);
 int		ft_increment_percent(void);
 int		ft_dec_to_hex(unsigned int n, int mod);
 char	*ft_increment_itoa(unsigned int n);
-int		ft_print_ptr(unsigned long long ptr);
+//int		ft_print_ptr(unsigned long long ptr);
 #endif

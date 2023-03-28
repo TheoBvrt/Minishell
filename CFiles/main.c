@@ -2,7 +2,7 @@
 
 void	setup(t_token **token, char *str)
 {
-	get_token(token);
+	get_token(token, str);
 }
 
 int	main(int argc, char **argv)

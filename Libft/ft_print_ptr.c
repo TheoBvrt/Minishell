@@ -46,7 +46,7 @@ static void	ft_put_ptr(uintptr_t num)
 int	ft_print_ptr(unsigned long long ptr)
 {
 	int	len;
-
+	(void) ptr;
 	len = 0;
 	len += write(1, "0x", 2);
 	if (ptr == 0)
