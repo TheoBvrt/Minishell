@@ -11,5 +11,11 @@ int	main(int argc, char **argv)
 
 	token = malloc(sizeof(t_token));
 	setup(&token, argv[1]);
+
+	printf("%d\n", token->type);
+	token = token->next;
+	printf("%d\n", token->type);
+	token = token->next;
+	printf("%d\n", token->type);
 	return (0);
 }

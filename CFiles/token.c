@@ -35,6 +35,8 @@ void	get_token(t_token **token, char *str)
 	i = 0;
 	while (i < get_total_token(str))
 	{
-		
+		list_add_back(token);
+		i ++;
+		printf("test\n");
 	}
 }

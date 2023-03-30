@@ -20,4 +20,6 @@ typedef struct s_token
 void	free_list(void	**list);
 void	get_token(t_token **token, char *str);
 
+void	list_add_back(t_token **lst);
+
 #endif

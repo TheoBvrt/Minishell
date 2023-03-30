@@ -1,5 +1,5 @@
 NAME = minishell
-SRCS = CFiles/main.c CFiles/token.c CFiles/utils.c
+SRCS = CFiles/main.c CFiles/token.c CFiles/utils.c CFiles/list_manager.c
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
