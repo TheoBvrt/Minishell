@@ -28,6 +28,42 @@ int	get_total_token(char *str)
 	return (total);
 }
 
+t_token	*ft_lst_last_2(t_token *lst)
+{
+	while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+
+void    ft_lst_add_backs(t_token **lst, t_token *new)
+{
+    t_token    *tmp;
+
+    if (!lst || !new)
+        return ;
+    if (!*lst)
+    {
+        *lst = new;
+        return ;
+    }
+    tmp = ft_lst_last_2(*lst);
+    tmp->next = new;
+}
+
+t_token	*create_new()
+{
+	t_token *new;
+
+	new = malloc(sizeof(t_token));
+	new->type = rand() % 20;
+	return (new);
+}
+
 void	get_token(t_token **token, char *str)
 {
 	int i;
@@ -35,8 +71,7 @@ void	get_token(t_token **token, char *str)
 	i = 0;
 	while (i < get_total_token(str))
 	{
-		list_add_back(token);
+		ft_lst_last_2(token, create_new());
 		i ++;
-		printf("test\n");
 	}
 }
