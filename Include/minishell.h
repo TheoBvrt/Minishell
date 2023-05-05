@@ -18,8 +18,12 @@ typedef struct s_token
 } t_token;
 
 void	free_list(void	**list);
-void	get_token(t_token **token, char *str);
-
+void	init_token(t_token **token, char *str);
+t_token	*create_new();
 void	list_add_back(t_token **lst);
+void    ft_lst_add_backs(t_token **lst, t_token *new);
+void    ft_print_list(t_token *l);
+int		ft_is_empty_list(t_token *l);
+t_token	*ft_lst_last_2(t_token *lst);
 
 #endif

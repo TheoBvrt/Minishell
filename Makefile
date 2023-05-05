@@ -13,7 +13,7 @@ all : ${OBJS} ${NAME}
 
 ${NAME} :
 	${MAKE} bonus -C ./Libft 
-	$(CC) $(OBJS) $(CFLAGS) ./Libft/libft.a -o ${NAME} -g3
+	$(CC) $(OBJS) $(CFLAGS) ./Libft/libft.a -o ${NAME}
 
 clean:
 	${RM} ${OBJS}
