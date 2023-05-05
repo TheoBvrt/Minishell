@@ -28,9 +28,9 @@ int	get_total_token(char *str)
 	return (total);
 }
 
-void	get_word(int total_word)
+void	get_word(t_token *token, char *str)
 {
-
+	ft_printf("%d", token->type);
 }
 
 void	init_token(t_token **token, char *str)
@@ -43,5 +43,5 @@ void	init_token(t_token **token, char *str)
 		ft_lst_add_backs(token, create_new());
 		i ++;
 	}
-	get_word(get_total_token(str));
+	get_word(*token, str);
 }
