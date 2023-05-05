@@ -30,7 +30,26 @@ int	get_total_token(char *str)
 
 void	get_word(t_token *token, char *str)
 {
-	ft_printf("%d", token->type);
+	int size_of_word;
+	int	i;
+
+	size_of_word = 0;
+	i = 0;
+
+	while (str[i] != endline)
+	{
+		if (excluded_char(str[i]) == 0)
+		{
+			while (excluded_char(str[i]) == 0 && str[i] != endline)
+			{
+				size_of_word ++;
+				i ++;
+			}
+		}
+		printf("\nWord : %d", size_of_word);
+		size_of_word = 0;
+		i ++;
+	}
 }
 
 void	init_token(t_token **token, char *str)
@@ -44,4 +63,4 @@ void	init_token(t_token **token, char *str)
 		i ++;
 	}
 	get_word(*token, str);
-}
+} 
