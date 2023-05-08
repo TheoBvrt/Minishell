@@ -28,34 +28,50 @@ int	get_total_token(char *str)
 	return (total);
 }
 
-void	get_word(t_token *token, char *str)
+void	get_token(t_token *token, char *str)
 {
 	int size_of_word;
 	int	i;
+    int t;
     t_token *tmp;
+    t_token  *tmp2;
 
 	size_of_word = 0;
 	i = 0;
+    t = 0;
     tmp = token;
+    tmp2 = token;
 	while (i < ft_strlen(str))
 	{
 		if (excluded_char(str[i]) == 0)
 		{
 			while (excluded_char(str[i]) == 0 && str[i] != endline)
 			{
-                //printf("%c", str[i]);
 				size_of_word ++;
 				i ++;
 			}
 		}
         if (excluded_char(str[i - 1]) == 0 && i != 0)
         {
-            tmp->type = size_of_word + 1;
+            tmp->str = ft_calloc(size_of_word + 1, sizeof(char));
             tmp = tmp->next;
         }
 		size_of_word = 0;
 		i ++;
 	}
+    i = 0;
+
+    while (i < ft_strlen(str))
+    {
+        if (excluded_char(str[i]) == 0)
+        {
+            while (excluded_char(str[i]) == 0 && str[i] != endline)
+                tmp2->str[t++] = str[i]++;
+            tmp2 = tmp2->next;
+            t = 0;
+        }
+        i ++;
+    }
 }
 
 void	init_token(t_token **token, char *str)
@@ -68,5 +84,5 @@ void	init_token(t_token **token, char *str)
 		ft_lst_add_backs(token, create_new());
 		i ++;
 	}
-	get_word(*token, str);
+	get_token(*token, str);
 } 

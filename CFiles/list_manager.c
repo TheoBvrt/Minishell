@@ -9,7 +9,7 @@ void    ft_print_list(t_token *l)
 {
     while (!ft_is_empty_list(l))
     {    
-        printf("%d ", l->type);
+        printf("%s\n", l->str);
         l = l->next;
     }
     printf("\n");
