@@ -66,7 +66,7 @@ void	get_token(t_token *token, char *str)
         if (excluded_char(str[i]) == 0)
         {
             while (excluded_char(str[i]) == 0 && str[i] != endline)
-                tmp2->str[t++] = str[i]++;
+                tmp2->str[t++] = str[i++];
             tmp2 = tmp2->next;
             t = 0;
         }
