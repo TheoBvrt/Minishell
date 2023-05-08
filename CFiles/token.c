@@ -32,21 +32,27 @@ void	get_word(t_token *token, char *str)
 {
 	int size_of_word;
 	int	i;
+    t_token *tmp;
 
 	size_of_word = 0;
 	i = 0;
-
-	while (str[i] != endline)
+    tmp = token;
+	while (i < ft_strlen(str))
 	{
 		if (excluded_char(str[i]) == 0)
 		{
 			while (excluded_char(str[i]) == 0 && str[i] != endline)
 			{
+                //printf("%c", str[i]);
 				size_of_word ++;
 				i ++;
 			}
 		}
-		printf("\nWord : %d", size_of_word);
+        if (excluded_char(str[i - 1]) == 0 && i != 0)
+        {
+            tmp->type = size_of_word + 1;
+            tmp = tmp->next;
+        }
 		size_of_word = 0;
 		i ++;
 	}
