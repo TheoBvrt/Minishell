@@ -35,7 +35,6 @@ t_token	*create_new()
 	t_token *new;
 
 	new = malloc(sizeof(t_token));
-	new->type = rand() % 20;
 	return (new);
 }
  

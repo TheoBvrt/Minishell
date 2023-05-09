@@ -10,7 +10,6 @@ int	main(int argc, char **argv)
 	t_token *token;
 
 	token = malloc(sizeof(t_token));
-	token->type = rand() % 20;
 	setup(&token, argv[1]);
 	ft_print_list(token);
 	return (0);
