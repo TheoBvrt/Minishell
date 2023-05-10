@@ -1,16 +1,17 @@
 #include "../Include/minishell.h"
 
-void	setup(t_token **token, char *str)
+void	setup(t_exec **exec, char *str)
 {
-	init_token(token, str);
+	init_token(exec, str);
 }
 
 int	main(int argc, char **argv)
 {
-	t_token *token;
+    t_exec *exec;
 
-	token = malloc(sizeof(t_token));
-	setup(&token, argv[1]);
-	ft_print_list(token);
+	exec = malloc(sizeof(t_exec));
+    exec->test = 0;
+	setup(&exec, argv[1]);
+    ft_print_list(exec);
 	return (0);
 }
