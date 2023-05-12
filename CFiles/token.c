@@ -33,6 +33,7 @@ int		word_count(int node_id, char *str)
 	word_count = 0;
 	pipe_passed = 0;
 	index = 0;
+
 	if (node_id == 0)
 	{
         while (str[index] != '|' && str[index] != endline)
