@@ -12,12 +12,9 @@ void    ft_print_list(t_exec *l)
     i = 0;
     while (!ft_is_empty_list(l))
     {    
-        /*while (l->cmd_args[i] != NULL)
-        {
-            ft_printf("%s", l->cmd_args[i]);
-            i ++;
-        }*/
-        ft_printf("%d\n", l->test);
+        ft_printf("%d", l->node_id);
+        if (l->next != NULL)
+            ft_printf("\n");
         l = l->next;
     }
     printf("\n");
@@ -38,12 +35,12 @@ void    ft_lst_add_backs(t_exec **lst, t_exec *new)
     tmp->next = new;
 }
  
-t_exec 	*create_new()
+t_exec 	*create_new(int node_id)
 {
 	t_exec *new;
 
 	new = malloc(sizeof(t_exec));
-    new->test = 10;
+    new->node_id = node_id;
 	return (new);
 }
  

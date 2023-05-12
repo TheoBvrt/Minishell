@@ -16,7 +16,7 @@ typedef struct s_exec
     struct t_redir    *redir;
     struct s_exec    *next;
     struct s_exec    *prev;
-    int test;
+    int node_id;
 }    t_exec;
 
 typedef struct s_redir
@@ -29,8 +29,9 @@ typedef struct s_redir
 }    t_redir;
 
 void	free_list(void	**list);
+int		word_count(int node_id, char *str);
 void	init_token(t_exec **exec, char *str);
-t_exec 	*create_new();
+t_exec 	*create_new(int node_id);
 void	list_add_back(t_exec **lst);
 void    ft_lst_add_backs(t_exec **lst, t_exec *new);
 void    ft_print_list(t_exec *l);
