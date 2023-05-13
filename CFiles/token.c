@@ -38,9 +38,14 @@ int		word_count(int node_id, char *str)
 	{
         while (str[index] != '|' && str[index] != endline)
         {
-            ft_printf("%c", str[index]);
+			if (excluded_char(str[index]) == 0)
+			{
+				if (excluded_char(str[index - 1]) == 1 || index == 0)
+					word_count ++;
+			}
             index ++;
         }
+		return (word_count);
 	}
 	else
 	{
@@ -52,11 +57,11 @@ int		word_count(int node_id, char *str)
 		}
         while (str[index] != '|' && str[index] != endline)
         {
-            ft_printf("%c", str[index]);
+			if (excluded_char(str[index]) == 0 && excluded_char(str[index - 1]) == 1)
+				word_count ++;
             index ++;
         }
 	}
-    ft_printf("\n");
 	return (word_count);
 }
 

@@ -3,7 +3,7 @@
 void	setup(t_exec **exec, char *str)
 {
 	init_token(exec, str);
-	word_count(1, str);
+	ft_printf("(%d)\n", word_count(1, str));
 }
 
 int	main(int argc, char **argv)
