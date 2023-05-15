@@ -8,6 +8,26 @@ int	excluded_char(char c)
 		return (0);
 }
 
+int check_redir(int node_id, char *str)
+{
+	int total_redir;
+	int	index;
+	int pipe_passed;
+
+	total_redir = 0;
+	index = 0;
+	pipe_passed = 0;
+	if (node == 0)
+	{
+
+	}
+	else
+	{
+
+	}
+	return (total_redir);
+}
+
 int	get_total_exec_node(char *str)
 {
     int total;
