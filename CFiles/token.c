@@ -8,6 +8,19 @@ int	excluded_char(char c)
 		return (0);
 }
 
+int redir_checker(char c_1, char c_2)
+{
+	if (c_1 == '>' && excluded_char(c_2) == 1)
+		return (right);
+	if (c_1 == '<' && excluded_char(c_2) == 1)
+		return (left);
+	if (c_1 == '>' && c_2 == '>')
+		return (right_shift);
+	if (c_1 == '<' && c_2 == '<')
+		return (left_shift);
+	else
+		return (-1);
+}
 int check_redir(int node_id, char *str)
 {
 	int total_redir;
@@ -17,13 +30,32 @@ int check_redir(int node_id, char *str)
 	total_redir = 0;
 	index = 0;
 	pipe_passed = 0;
-	if (node == 0)
-	{
-
+	if (node_id == 0)
+    {
+		while (str[index] != endline && str[index] != '|')
+		{
+			if (redir_checker(str[index], str[index + 1]) != -1)
+			{
+				total_redir ++;
+				index ++;
+			}
+			index ++;
+		}
 	}
 	else
 	{
-
+        while (pipe_passed != node_id)
+        {
+			if (str[index] == '|')
+                pipe_passed ++;
+            index ++;
+        }
+		if (redir_checker(str[index], str[index + 1]) != -1)
+		{
+			total_redir ++;
+			index ++;
+		}
+		index ++;
 	}
 	return (total_redir);
 }
@@ -112,4 +144,4 @@ void	init_token(t_exec **exec, char *str)
 		i ++;
     }
 	get_token(*exec, str);
-} 
+}

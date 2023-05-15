@@ -7,7 +7,11 @@
 
 enum e_utils
 {
-	endline = '\0'
+	endline = '\0',
+	right = 0,
+	left = 1,
+	right_shift = 2,
+	left_shift = 3
 };
 
 typedef struct s_exec
@@ -32,6 +36,7 @@ void	free_list(void	**list);
 int		word_count(int node_id, char *str);
 void	init_token(t_exec **exec, char *str);
 t_exec 	*create_new(int node_id);
+int redir_checker(char c_1, char c_2);
 void	list_add_back(t_exec **lst);
 void    ft_lst_add_backs(t_exec **lst, t_exec *new);
 void    ft_print_list(t_exec *l);
