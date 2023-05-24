@@ -10,9 +10,9 @@ int	excluded_char(char c)
 
 int redir_checker(char c_1, char c_2)
 {
-	if (c_1 == '>' && excluded_char(c_2) == 1)
+	if (c_1 == '>' && (excluded_char(c_2) == 1 || c_2 == '\0' || c_2 == '|'))
 		return (right);
-	if (c_1 == '<' && excluded_char(c_2) == 1)
+	if (c_1 == '<' && (excluded_char(c_2) == 1 || c_2 == '\0' || c_2 == '|'))
 		return (left);
 	if (c_1 == '>' && c_2 == '>')
 		return (right_shift);
@@ -21,6 +21,23 @@ int redir_checker(char c_1, char c_2)
 	else
 		return (-1);
 }
+
+int		check_all_redir(char *str)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != endline)
+	{
+		if (redir_checker(str[index], str[index + 1]) != -1)
+		{
+			//
+		}
+		index ++;
+	}
+	return (0);
+}
+
 int check_redir(int node_id, char *str)
 {
 	int total_redir;
@@ -50,9 +67,13 @@ int check_redir(int node_id, char *str)
                 pipe_passed ++;
             index ++;
         }
-		if (redir_checker(str[index], str[index + 1]) != -1)
+		while (str[index] != endline && str[index] != '|')
 		{
-			total_redir ++;
+			if (redir_checker(str[index], str[index + 1]) != -1)
+			{
+				total_redir ++;
+				index ++;
+			}
 			index ++;
 		}
 		index ++;
@@ -134,14 +155,27 @@ void	init_token(t_exec **exec, char *str)
 {
 	int i;
 	int node_id;
+	int total_cmd_args;
 
 	i = 0;
-	node_id = 1;
+	total_cmd_args = 0;
+	node_id = 0;
 	while (i < get_total_exec_node(str) - 1)
 	{
 		ft_lst_add_backs(exec, create_new(node_id));
 		node_id ++;
 		i ++;
     }
+	node_id = 0;
+	i = 0;
+
+	while (i < get_total_exec_node(str))
+	{
+		total_cmd_args = word_count(node_id, str) - (check_redir(node_id, str)) * 2;
+		printf("Total word count node %d : %d\n", node_id, total_cmd_args);
+		i ++;
+		node_id ++;
+		total_cmd_args = 0;
+	}
 	get_token(*exec, str);
 }
