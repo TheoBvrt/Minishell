@@ -43,7 +43,9 @@ void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
-	shell->cmd = parse_rd(shell);
+	//shell->cmd = parse_rd(shell); //removed
+	shell->cmd = parse_read_line(shell); //added
+	lst_show(shell->cmd);
 	if (check_error(shell))
 	{
 		free_cmd(shell);

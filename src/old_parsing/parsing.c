@@ -49,8 +49,9 @@ t_cmd	*parse_rd(t_shell *shell)
 	j = 0;
 	while (shell->read[i])
 	{
-		if (i == 0 && is_token(shell->read[i]))
+		if (i == 0 && is_token(shell->read[i])) { //verfie sir le char[0] = un token et si oui creer une node
 			parse_rd_token(shell, &j);
+		}
 		if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
 		{
 			if (i - j + 1 > 0)

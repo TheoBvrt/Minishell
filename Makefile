@@ -70,12 +70,13 @@ SRC 		= 	main.c							\
 				old_parsing/dollars.c				\
 				old_parsing/here_doc.c				\
 				old_parsing/create_cmd.c			\
-				old_parsing/create_redir.c			
+				old_parsing/create_redir.c			\
+				parsing/t_parsing.c	
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 OBJS				= ${SRC:.c=.o}
 OBJS_DIR			= objs
-DIRS				= objs objs/utils objs/old_parsing objs/execution objs/builtin objs/free
+DIRS				= objs objs/utils objs/old_parsing objs/execution objs/builtin objs/free objs/parsing
 _OBJS				= $(addprefix $(OBJS_DIR)/, $(OBJS))
 
 all: lib $(NAME)
