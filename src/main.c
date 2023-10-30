@@ -45,7 +45,6 @@ void	parsing(t_shell *shell)
 		add_history(shell->read);
 	//shell->cmd = parse_rd(shell); //removed
 	shell->cmd = parse_read_line(shell); //added
-	lst_show(shell->cmd);
 	if (check_error(shell))
 	{
 		free_cmd(shell);
@@ -58,9 +57,10 @@ void	parsing(t_shell *shell)
 		return ;
 	}
 	parse_cmd(shell);
-	execution(shell);
-	free_cmd(shell);
-	free_exec(shell);
+	lst_show(shell->cmd);
+	//execution(shell);
+	//free_cmd(shell);
+	//free_exec(shell);
 	free(shell->read);
 }
 

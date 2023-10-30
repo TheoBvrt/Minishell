@@ -22,11 +22,12 @@ void	error_msg(t_shell *shell, char *msg)
 /// \param shell Structure shell
 void	parse_cmd(t_shell *shell)
 {
-	parse_space(shell);
-	parse_space_around(shell, 0);
-	parse_dollars(shell);
-	remove_quotes(shell);
-	create_cmd(shell);
+	remove_space(shell);
+	//parse_space(shell);
+	//parse_space_around(shell, 0);
+	//parse_dollars(shell);
+	//remove_quotes(shell);
+	//create_cmd(shell);
 }
 
 void	parse_rd_token(t_shell *shell, int *j)
