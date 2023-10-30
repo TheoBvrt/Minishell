@@ -23,8 +23,10 @@ void	error_msg(t_shell *shell, char *msg)
 void	parse_cmd(t_shell *shell)
 {
 	remove_space(shell);
-	//parse_space(shell);
-	//parse_space_around(shell, 0);
+	//parse_space(shell); -> remove_space
+	//parse_space_around(shell, 0); -> remove_space
+
+
 	//parse_dollars(shell);
 	//remove_quotes(shell);
 	//create_cmd(shell);
