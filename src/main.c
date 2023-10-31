@@ -58,7 +58,7 @@ void	parsing(t_shell *shell)
 	}
 	parse_cmd(shell);
 	lst_show(shell->cmd);
-	execution(shell);
+	//execution(shell);
 	free_cmd(shell);
 	free_exec(shell);
 	free(shell->read);

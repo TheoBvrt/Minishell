@@ -74,7 +74,8 @@ SRC 		= 	main.c							\
 				parsing/t_parsing.c					\
 				parsing/t_command.c					\
 				parsing/t_space.c					\
-				parsing/t_dollars.c
+				parsing/t_dollars.c					\
+				parsing/t_quotes.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 OBJS				= ${SRC:.c=.o}

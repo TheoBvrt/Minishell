@@ -24,11 +24,12 @@ void	parse_cmd(t_shell *shell)
 {
 	remove_space(shell);
 	dollars_parser(shell);
+	quotes_parser(shell);
 	//parse_space(shell); //-> remove_space
 	//parse_space_around(shell, 0); //-> remove_space
 	//parse_dollars(shell); //-> dollars_parser
-	remove_quotes(shell);
-	create_cmd(shell);
+	//remove_quotes(shell);
+	//create_cmd(shell);
 }
 
 void	parse_rd_token(t_shell *shell, int *j)

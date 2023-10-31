@@ -53,12 +53,12 @@ void	remove_quotes(t_shell *shell)
 	{
 		if (tmp->cmd[0] == '\"' || tmp->cmd[0] == '\'')
 		{
-			c = tmp->cmd[0];
-			tmp = ft_pop(tmp, shell);
+			c = tmp->cmd[0]; //enregistre le character si c'est " ou '
+			tmp = ft_pop(tmp, shell); //retjre la node
 			str = remove_quotes_utils(tmp, c);
 			while (tmp->cmd[0] != c)
 				tmp = ft_pop(tmp, shell);
-			replace_str(&tmp->cmd, str);
+			replace_str(&tmp->cmd, str); //supprime le contenue de cmd et le remplace le str
 		}
 		tmp = tmp->next;
 	}
