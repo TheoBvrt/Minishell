@@ -3,9 +3,9 @@
 int	test_redir(char c)
 {
 	if (c == '>' || c == '<' || c == '|')
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }
 
 void	remove_other_space(t_shell *shell)

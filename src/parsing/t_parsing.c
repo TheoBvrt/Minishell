@@ -35,6 +35,5 @@ t_cmd *parse_read_line(t_shell *shell)
 		}
 		i ++;
 	}
-	
 	return (shell->cmd);
 }
