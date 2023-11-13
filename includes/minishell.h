@@ -299,5 +299,6 @@ void	command_parser(t_shell *shell);
 void	remove_space(t_shell *shell);
 void	dollars_parser(t_shell *shell);
 void	quotes_parser(t_shell *shell);
+void	create_command(t_shell *shell);
 
 #endif
