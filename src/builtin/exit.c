@@ -42,7 +42,6 @@ void	ft_exit(t_shell *shell, char **args)
 		g_error_num = 1;
 		return ;
 	}
-	ft_printf("Salam khouya j'espere ta kiffer ;) (mets 100 stp)\n");
 	free_cmd(shell);
 	free_exec(shell);
 	free(shell->read);

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_command.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Created: 2022/10/17 11:55:26 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/19 09:45:47 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	command_parser(t_shell *shell)
+int	ft_tolower(int c)
 {
-	remove_space(shell);
-	dollars_parser(shell);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

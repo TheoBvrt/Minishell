@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_command.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Created: 2022/10/17 11:54:56 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:42:33 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	command_parser(t_shell *shell)
+size_t	ft_strlen(const char *str)
 {
-	remove_space(shell);
-	dollars_parser(shell);
+	size_t	index;
+
+	index = 0;
+	while (str[index] != 0)
+		index++;
+	return (index);
 }

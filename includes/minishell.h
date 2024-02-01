@@ -212,6 +212,7 @@ void		minishell_wait(int exec_len);
 void		add_to_env(char **args, t_shell *shell);
 void		env_add_back(t_variable **env, t_variable *new);
 t_variable	*create_env(char *name, char *value);
+char		*get_env_value(t_shell *shell, char *str);
 
 ////////////////////////////////SIG.C///////////////////////////////////////////
 void		rl_replace_line(const char *text, int clear_undo);
@@ -255,7 +256,7 @@ void		redir_add_back(t_redir **redir, t_redir *new);
 ////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////CREATE_CMD.C///////////////////////////////////////
-void		create_cmd(t_shell *shell);
+//void		create_cmd(t_shell *shell);
 
 ///////////////////////////CREATE_REDIR.C///////////////////////////////////////
 t_redir		*create_redir(t_cmd	*cmd);
@@ -263,9 +264,8 @@ t_redir		*redirection(t_redir *redir, t_cmd *cmd);
 t_cmd		*zebi_redir(t_redir **redir, t_cmd *tmp);
 t_cmd		*basic_redir(t_redir **redir, t_cmd *tmp);
 ///////////////////////////////DOLLARS.C////////////////////////////////////////
-void		parse_dollars(t_shell *shell);
-char		*extract_value(t_shell *shell, char *cmd, int i);
-char		*get_env_value(t_shell *shell, char *str);
+//void		parse_dollars(t_shell *shell);
+//char		*extract_value(t_shell *shell, char *cmd, int i);
 
 ///////////////////////////////GET_CMD.C////////////////////////////////////////
 void		get_cmd(t_shell *shell);
@@ -274,19 +274,17 @@ t_cmd		*check_exec(t_shell *shell, t_cmd *cmd, char **args,
 t_cmd		*return_args_tmp(char ***args, t_cmd *tmp);
 
 ///////////////////////////////SPACE.C//////////////////////////////////////////
-void		parse_space(t_shell *shell);
-void		parse_space_around(t_shell *shell, int i);
+//void		parse_space(t_shell *shell);
+//void		parse_space_around(t_shell *shell, int i);
 
 ///////////////////////////////PARSING.C////////////////////////////////////////
-void		parse_cmd(t_shell *shell);
-void		error_msg(t_shell *shell, char *msg);
-void		parse_rd_token(t_shell *shell, int *j);
-t_cmd		*parse_rd(t_shell *shell);
+//void		parse_rd_token(t_shell *shell, int *j);
+//t_cmd		*parse_rd(t_shell *shell);
 
 ///////////////////////////////QUOTES.C/////////////////////////////////////////
-void		remove_quotes(t_shell *shell);
-void		replace_str(char **replace, char *str);
-char		*remove_quotes_utils(t_cmd *tmp, char c);
+//void		remove_quotes(t_shell *shell);
+//void		replace_str(char **replace, char *str);
+//char		*remove_quotes_utils(t_cmd *tmp, char c);
 
 /////////////////////////////HERE_DOC.C/////////////////////////////////////////
 t_redir		*here_doc(t_cmd *tmp, char *limiter);
@@ -300,5 +298,7 @@ void	remove_space(t_shell *shell);
 void	dollars_parser(t_shell *shell);
 void	quotes_parser(t_shell *shell);
 void	create_command(t_shell *shell);
+void	parse_cmd(t_shell *shell);
+void	error_msg(t_shell *shell, char *msg);
 
 #endif

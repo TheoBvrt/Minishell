@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_parsing.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 void	read_first_token(t_shell *shell)
@@ -36,4 +48,23 @@ t_cmd *parse_read_line(t_shell *shell)
 		i ++;
 	}
 	return (shell->cmd);
+}
+
+void	error_msg(t_shell *shell, char *msg)
+{
+	free_cmd(shell);
+	printf("%s\n", msg);
+}
+
+void	parse_cmd(t_shell *shell)
+{
+	remove_space(shell);
+	dollars_parser(shell);
+	quotes_parser(shell);
+	create_command(shell);
+	//parse_space(shell); //-> remove_space
+	//parse_space_around(shell, 0); //-> remove_space
+	//parse_dollars(shell); //-> dollars_parser
+	//remove_quotes(shell);
+	//create_cmd(shell);
 }

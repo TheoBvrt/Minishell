@@ -73,3 +73,21 @@ void	add_to_env(char **args, t_shell *shell)
 	else
 		env_add_back(&shell->env, create_env(args[0], NULL));
 }
+
+char	*get_env_value(t_shell *shell, char *str)
+{
+	t_variable	*env;
+
+	env = shell->env;
+	if (!str)
+		return ("");
+	if (!ft_strcmp(str, "?"))
+		return (ft_itoa(g_error_num));
+	while (env)
+	{
+		if (!ft_strcmp(env->name, str))
+			return (env->value);
+		env = env->next;
+	}
+	return ("");
+}

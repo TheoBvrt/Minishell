@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_create_cmd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 t_cmd *advance_past_pipe(t_cmd *cmd) {
@@ -6,18 +18,19 @@ t_cmd *advance_past_pipe(t_cmd *cmd) {
     return (cmd);
 }
 
-int is_not_redirection(t_cmd *cmd) {
-    char first_char;
-	char prev_first_char;
+int	is_not_redirection(t_cmd *cmd) {
+    char	first_char;
+    char	prev_first_char;
 
-	first_char = cmd->cmd[0];
+    first_char = cmd->cmd[0];
     if (cmd->prev)
-	{
+    {
         prev_first_char = cmd->prev->cmd[0];
         if (prev_first_char == '<' || prev_first_char == '>')
-			return 0;
+            return 0;
     }
-    return !(first_char == '>' || first_char == '<' || first_char == '|' || first_char == ' ');
+	return (!(first_char == '>' || first_char == '<' ||
+		first_char == '|' || first_char == ' '));
 }
 
 char **build_cmd_args(t_cmd *cmd) {

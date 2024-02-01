@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_command.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Created: 2022/10/17 11:53:48 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:42:50 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	command_parser(t_shell *shell)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	remove_space(shell);
-	dollars_parser(shell);
+	size_t	index;
+
+	index = 0;
+	if (!n)
+		return (NULL);
+	while (index < n)
+	{
+		if (((unsigned char *)s)[index] == (unsigned char)c)
+			return ((char *)s + index);
+		index++;
+	}
+	return (NULL);
 }

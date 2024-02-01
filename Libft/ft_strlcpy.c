@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_command.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Created: 2022/10/17 11:54:51 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:42:33 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	command_parser(t_shell *shell)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
-	remove_space(shell);
-	dollars_parser(shell);
+	size_t	index;
+	size_t	src_size;
+
+	index = 0;
+	src_size = 0;
+	if (destsize != 0)
+	{
+		while (src[index] != '\0' && index != (destsize - 1))
+		{
+			dest[index] = src[index];
+			index++;
+		}
+		dest[index] = '\0';
+	}
+	while (src[src_size] != '\0')
+		src_size++;
+	return (src_size);
 }

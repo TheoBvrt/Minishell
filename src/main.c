@@ -43,8 +43,7 @@ void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
-	//shell->cmd = parse_rd(shell); //removed
-	shell->cmd = parse_read_line(shell); //added
+	shell->cmd = parse_read_line(shell);
 	if (check_error(shell))
 	{
 		free_cmd(shell);
@@ -57,7 +56,6 @@ void	parsing(t_shell *shell)
 		return ;
 	}
 	parse_cmd(shell);
-	//lst_show(shell->cmd);
 	execution(shell);
 	free_cmd(shell);
 	free_exec(shell);
@@ -89,7 +87,7 @@ int	main(int ac, char **av, char **env)
 	while (1)
 	{
 		run_signals(1);
-		shell.read = readline("Jean minishell crapaud:");
+		shell.read = readline("Shell:");
 		if (!shell.read)
 			run_signals(3);
 		if (ft_strcmp(shell.read, "exit") == 0)

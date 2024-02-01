@@ -16,7 +16,7 @@ void	cmd_not_found(char *cmd)
 {
 	if (!cmd)
 		return ;
-	ft_putstr_fd("jean minishell crapaud: ", 2);
+	ft_putstr_fd("Shell: ", 2);
 	ft_putstr_fd(cmd, 2);
 	ft_putstr_fd(": command not found\n", 2);
 	exit(1);
@@ -26,7 +26,7 @@ void	parse_error(char *cmd)
 {
 	if (!cmd)
 		return ;
-	ft_putstr_fd("jean minishell crapaud: ", 2);
+	ft_putstr_fd("Shell: ", 2);
 	perror(cmd);
 	exit(1);
 }

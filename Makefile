@@ -64,15 +64,10 @@ SRC 		= 	main.c							\
 				utils/get_env.c					\
 				utils/sig.c						\
 				free/free.c						\
-				old_parsing/parsing.c				\
-				old_parsing/quotes.c				\
-				old_parsing/space.c					\
-				old_parsing/dollars.c				\
-				old_parsing/here_doc.c				\
-				old_parsing/create_cmd.c			\
-				old_parsing/create_redir.c			\
 				parsing/t_parsing.c					\
 				parsing/t_command.c					\
+				parsing/here_doc.c					\
+				parsing/create_redir.c				\
 				parsing/t_space.c					\
 				parsing/t_dollars.c					\
 				parsing/t_quotes.c					\

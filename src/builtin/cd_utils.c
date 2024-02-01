@@ -32,7 +32,7 @@ char	*stock_pwd(char *old_pwd)
 
 void	cd_error(char *new_path)
 {
-	ft_putstr_fd("jean minishell crapaud: cd: ", 2);
+	ft_putstr_fd("Shell: cd: ", 2);
 	ft_putstr_fd(new_path, 2);
 	ft_putstr_fd(": No such file or directory\n", 2);
 }
