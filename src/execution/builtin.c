@@ -12,11 +12,23 @@
 
 #include "minishell.h"
 
+int	c_args(char **cmd_args)
+{
+	int	count;
+
+	count = 0;
+	while (cmd_args[count] != NULL)
+	count++;
+	return (count);
+}
+
 int	builtin_in_fork(t_shell *shell, char *cmd, t_exec *tmp)
 {
 	if (!cmd)
 		return (1);
-	if (ft_strcmp(cmd, "echo") == 0)
+	if (ft_strcmp(cmd, "echo") == 0 && c_args(tmp->cmd_args) == 1)
+		printf("\n");
+	else if (ft_strcmp(cmd, "echo") == 0 && c_args(tmp->cmd_args) > 1)
 		echo(tmp->cmd_args);
 	else if (ft_strcmp(cmd, "env") == 0)
 		env(shell);

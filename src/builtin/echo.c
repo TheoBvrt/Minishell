@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 11:17:16 by lcamilo-          #+#    #+#             */
-/*   Updated: 2023/06/06 16:50:49 by marvin           ###   ########.fr       */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	printf_no_nl(char **args, int i)
 void	echo(char **args)
 {
 	int	i;
-
 	if (args[1] && !ft_strcmp("-n", args[1]))
 	{
 		i = 2;
