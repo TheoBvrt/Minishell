@@ -94,3 +94,8 @@ int	check_quotes(t_shell *shell)
 		return (1);
 	return (0);
 }
+
+void	read_first_token(t_shell *shell)
+{
+	lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, 0, 1)));
+}

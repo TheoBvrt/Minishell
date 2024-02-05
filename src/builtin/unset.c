@@ -52,10 +52,8 @@ void	unset(char **args, t_variable **env_tmp)
 {
 	t_variable	*env;
 	int			i;
-	int			j;
 
 	i = 0;
-	j = 0;
 	while (args[i])
 	{
 		env = *env_tmp;

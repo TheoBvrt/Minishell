@@ -63,7 +63,7 @@ void	remove_space(t_shell *shell)
 		else if (quote == ' ' && current->next && current->next->cmd[0] == ' ')
 		{
 			current = ft_pop(current, shell);
-			continue;
+			continue ;
 		}
 		current = current->next;
 	}

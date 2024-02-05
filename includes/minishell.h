@@ -300,5 +300,6 @@ void	quotes_parser(t_shell *shell);
 void	create_command(t_shell *shell);
 void	parse_cmd(t_shell *shell);
 void	error_msg(t_shell *shell, char *msg);
+void	read_first_token(t_shell *shell);
 
 #endif

@@ -12,7 +12,21 @@
 
 #include "minishell.h"
 
-char *create_string_node(t_cmd *cmd, char quote) {
+int	while_test(t_cmd *cmd, char quote)
+{
+	char	cmd_0;
+	char	cmd_1;
+
+	cmd_0 = cmd->cmd[0];
+	cmd_1 = cmd->prev->cmd[0];
+	if (cmd && (cmd_0 != quote || (cmd->prev && cmd_1 == '\\')))
+		return (0);
+	else
+		return (1);
+}
+
+char	*create_string_node(t_cmd *cmd, char quote)
+{
 	char	*returned_str;
 	int		i;
 	int		len;
@@ -20,12 +34,12 @@ char *create_string_node(t_cmd *cmd, char quote) {
 	i = 0;
 	len = 0;
 	if (!cmd)
-		return NULL;
+		return (NULL);
 	returned_str = malloc(len_cmd(cmd, quote) + 1);
-	if (!returned_str) 
-		return NULL;
+	if (!returned_str)
+		return (NULL);
 	i = 0;
-	while (cmd && (cmd->cmd[0] != quote || (cmd->prev && cmd->prev->cmd[0] == '\\')))
+	while (while_test(cmd, quote) == 0)
 	{
 		len = ft_strlen(cmd->cmd);
 		ft_memcpy(returned_str + i, cmd->cmd, len);
@@ -33,7 +47,7 @@ char *create_string_node(t_cmd *cmd, char quote) {
 		cmd = cmd->next;
 	}
 	returned_str[i] = '\0';
-	return returned_str;
+	return (returned_str);
 }
 
 void	quotes_parser(t_shell *shell)
@@ -41,7 +55,7 @@ void	quotes_parser(t_shell *shell)
 	t_cmd	*current;
 	char	current_quote;
 	char	*new_str;
-	
+
 	current = shell->cmd;
 	while (current)
 	{

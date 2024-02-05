@@ -30,17 +30,14 @@ t_variable	*create_env(char *name, char *value)
 void	env_add_back(t_variable **env, t_variable *new)
 {
 	t_variable	*current;
-	t_variable	*previous;
 
 	if (*env == NULL)
 		*env = new;
 	else
 	{
-		previous = *env;
 		current = *env;
 		while (current->next)
 		{
-			previous = current;
 			current = current->next;
 		}
 		current->next = new;

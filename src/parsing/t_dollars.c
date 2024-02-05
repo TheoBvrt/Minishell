@@ -68,7 +68,7 @@ void	dollars_parser(t_shell *shell)
 			else if (current->cmd[i] == '$' && is_in_quote == 0)
 			{
 				current->cmd = value(shell, current->cmd, i);
-				break;
+				break ;
 			}
 			i ++;
 		}
