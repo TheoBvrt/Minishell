@@ -85,7 +85,7 @@ void	inside_last_fork(t_shell *shell, t_exec *exec, t_fd *fd, char *path)
 	_close(shell->fd->input);
 	_close(shell->fd->output);
 	if (!builtin_in_fork(shell, exec->cmd_args[0], exec))
-		exit(0);
+		exit(0); //crash
 	path = ft_get_path(exec->cmd_args[0], shell);
 	if (!path)
 		cmd_not_found(exec->cmd_args[0]);
