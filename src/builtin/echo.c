@@ -50,6 +50,7 @@ void	printf_no_nl(char **args, int i)
 void	echo(char **args)
 {
 	int	i;
+
 	if (args[1] && !ft_strcmp("-n", args[1]))
 	{
 		i = 2;

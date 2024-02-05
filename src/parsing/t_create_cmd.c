@@ -19,7 +19,8 @@ t_cmd	*advance_past_pipe(t_cmd *cmd)
 	return (cmd);
 }
 
-int	is_not_redirection(t_cmd *cmd) {
+int	is_not_redirection(t_cmd *cmd)
+{
 	char	first_char;
 	char	prev_first_char;
 
@@ -28,13 +29,14 @@ int	is_not_redirection(t_cmd *cmd) {
 	{
 		prev_first_char = cmd->prev->cmd[0];
 		if (prev_first_char == '<' || prev_first_char == '>')
-			return 0;
+			return (0);
 	}
-	return (!(first_char == '>' || first_char == '<' ||
-		first_char == '|' || first_char == ' '));
+	return (!(first_char == '>' || first_char == '<'\
+		|| first_char == '|' || first_char == ' '));
 }
 
-char	**build_cmd_args(t_cmd *cmd) {
+char	**build_cmd_args(t_cmd *cmd)
+{
 	int		arg_count;
 	char	**args;
 	int		i;
@@ -42,19 +44,19 @@ char	**build_cmd_args(t_cmd *cmd) {
 	i = 0;
 	arg_count = count_args(cmd);
 	if (arg_count == 0)
-		return NULL;
+		return (NULL);
 	args = malloc(sizeof(char *) * (arg_count + 1));
 	if (!args)
-		return NULL;
+		return (NULL);
 	while (cmd && i < arg_count)
 	{
-		if (is_not_redirection(cmd)) 
+		if (is_not_redirection(cmd))
 		{
 			args[i] = ft_strdup(cmd->cmd);
 			i++;
 		}
 		if (cmd->cmd[0] == '|')
-			break;
+			break ;
 		cmd = cmd->next;
 	}
 	args[i] = NULL;
@@ -63,19 +65,18 @@ char	**build_cmd_args(t_cmd *cmd) {
 
 void	create_command(t_shell *shell)
 {
-    t_cmd	*current_cmd;
+	t_cmd	*current_cmd;
 	t_redir	*redirect;
 	char	**args;
 
 	current_cmd = shell->cmd;
-    while (current_cmd)
+	while (current_cmd)
 	{
-        args = build_cmd_args(current_cmd);
-    	redirect = create_redir(current_cmd);
-        exec_add_back(&shell->exec, exec_create(args, redirect));
-        current_cmd = advance_past_pipe(current_cmd);
-        if (current_cmd)
+		args = build_cmd_args(current_cmd);
+		redirect = create_redir(current_cmd);
+		exec_add_back(&shell->exec, exec_create(args, redirect));
+		current_cmd = advance_past_pipe(current_cmd);
+		if (current_cmd)
 			current_cmd = current_cmd->next;
-    }
+	}
 }
- 
