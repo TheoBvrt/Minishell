@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-int	carabistouille(int globale)
+int	check(int globale)
 {
 	if (globale == 13)
 		return (0);
@@ -26,12 +26,12 @@ int	check_g_err(char *args, int lol)
 {
 	if (!ft_strcmp("$?", args) && lol == 1)
 	{
-		ft_printf("%d ", carabistouille(g_error_num));
+		ft_printf("%d ", check(g_error_num));
 		return (0);
 	}
 	else if (!ft_strcmp("$?", args) && lol == 2)
 	{
-		ft_printf("%d\n", carabistouille(g_error_num));
+		ft_printf("%d\n", check(g_error_num));
 		return (0);
 	}
 	return (1);
