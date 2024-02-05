@@ -18,7 +18,7 @@ void	utils_1(t_shell *shell, int x, int i)
 		shell->read, x, i - x + 1)));
 }
 
-void	utils_2(t_shell *shell, int x, int i)
+void	utils_2(t_shell *shell, int x)
 {
 	lst_add_back(&shell->cmd, lst_create(ft_substr(\
 		shell->read, x, 1)));
@@ -44,7 +44,7 @@ t_cmd	*parse_read_line(t_shell *shell)
 				utils_1(shell, x, i);
 			x = i + 1;
 			if (shell->read[x] != 0)
-				utils_2(shell, x, i);
+				utils_2(shell, x);
 			x ++;
 		}
 		i ++;
