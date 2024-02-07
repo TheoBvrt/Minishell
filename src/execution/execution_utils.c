@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 08:45:22 by asouchet          #+#    #+#             */
-/*   Updated: 2023/06/09 10:11:06 by marvin           ###   ########.fr       */
+/*   Updated: 2024/02/07 11:40:27 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ char	*ft_get_path(char *cmd, t_shell *shell)
 	tmp = shell->env;
 	if (!cmd)
 		return (NULL);
+	if (access(cmd, X_OK | R_OK | F_OK) == 0)
+		return (cmd);
 	if (ft_path_check(cmd, &tmp))
 		return (cmd);
 	if (tmp)
@@ -85,7 +87,7 @@ void	inside_last_fork(t_shell *shell, t_exec *exec, t_fd *fd, char *path)
 	_close(shell->fd->input);
 	_close(shell->fd->output);
 	if (!builtin_in_fork(shell, exec->cmd_args[0], exec))
-		exit(0); //crash
+		exit(0);
 	path = ft_get_path(exec->cmd_args[0], shell);
 	if (!path)
 		cmd_not_found(exec->cmd_args[0]);

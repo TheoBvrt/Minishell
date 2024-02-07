@@ -1,0 +1,15 @@
+ $
+CFiles$
+Include$
+Libft$
+Makefile$
+bonjour.txt$
+fichier_test.txt$
+includes$
+libft.a$
+libftprintfgnl$
+lol$
+minishell$
+objs$
+salut$
+src$

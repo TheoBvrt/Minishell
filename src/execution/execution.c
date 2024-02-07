@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 15:23:10 by lcamilo-          #+#    #+#             */
-/*   Updated: 2023/06/09 09:56:55 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/29 11:47:30 by asouchet          #+#    #+#             */
+/*   Updated: 2024/02/07 12:12:42 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	last_cmd_in_file(t_shell *shell, t_exec *exec, t_fd *fd)
 	path = NULL;
 	pid = improved_fork(shell);
 	if (pid == 0)
-		inside_last_fork(shell, exec, fd, path);	
+		inside_last_fork(shell, exec, fd, path);
 	_close(fd->tmp[0]);
 	_close(fd->tmp[1]);
 	_close(shell->fd->input);
@@ -100,8 +100,8 @@ void	execution(t_shell *shell)
 	declare_var(shell, &fd, &file, &error);
 	cmd_count = cmd_nb(tmp);
 	if (cmd_count == 1)
-		one_cmd(shell, tmp, &fd);	
-	else 
+		one_cmd(shell, tmp, &fd);
+	else
 		middle_execution(shell, tmp, &fd);
 	minishell_wait(cmd_count);
 }
