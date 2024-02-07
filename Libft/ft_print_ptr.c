@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:41:36 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	ft_put_ptr(uintptr_t num)
 int	ft_print_ptr(unsigned long long ptr)
 {
 	int	len;
+
 	(void) ptr;
 	len = 0;
 	len += write(1, "0x", 2);

@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
-/*   Updated: 2022/11/01 10:53:21 by tbouvera         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:40:26 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,33 +273,20 @@ t_cmd		*check_exec(t_shell *shell, t_cmd *cmd, char **args,
 				t_redir *redir);
 t_cmd		*return_args_tmp(char ***args, t_cmd *tmp);
 
-///////////////////////////////SPACE.C//////////////////////////////////////////
-//void		parse_space(t_shell *shell);
-//void		parse_space_around(t_shell *shell, int i);
-
-///////////////////////////////PARSING.C////////////////////////////////////////
-//void		parse_rd_token(t_shell *shell, int *j);
-//t_cmd		*parse_rd(t_shell *shell);
-
-///////////////////////////////QUOTES.C/////////////////////////////////////////
-//void		remove_quotes(t_shell *shell);
-//void		replace_str(char **replace, char *str);
-//char		*remove_quotes_utils(t_cmd *tmp, char c);
-
 /////////////////////////////HERE_DOC.C/////////////////////////////////////////
 t_redir		*here_doc(t_cmd *tmp, char *limiter);
 t_redir		*redirection(t_redir *redir, t_cmd *cmd);
 t_redir		*import_heredoc(t_cmd *cmd, char *hd);
 
 /////////////////////////////NEW PARSING////////////////////////////////////////
-t_cmd	*parse_read_line(t_shell *shell);
-void	command_parser(t_shell *shell);
-void	remove_space(t_shell *shell);
-void	dollars_parser(t_shell *shell);
-void	quotes_parser(t_shell *shell);
-void	create_command(t_shell *shell);
-void	parse_cmd(t_shell *shell);
-void	error_msg(t_shell *shell, char *msg);
-void	read_first_token(t_shell *shell);
+t_cmd		*parse_read_line(t_shell *shell);
+void		command_parser(t_shell *shell);
+void		remove_space(t_shell *shell);
+void		dollars_parser(t_shell *shell);
+void		quotes_parser(t_shell *shell);
+void		create_command(t_shell *shell);
+void		parse_cmd(t_shell *shell);
+void		error_msg(t_shell *shell, char *msg);
+void		read_first_token(t_shell *shell);
 
 #endif
